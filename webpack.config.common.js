@@ -9,7 +9,7 @@ const spritesmith = require('webpack-spritesmith')
 
 module.exports = {
 	entry:{
-		app:'./src/index.js'
+		app:'./src/main.js'
 	},
 	output:{
 		filename:'[name].bundle.js',
@@ -18,6 +18,11 @@ module.exports = {
 	devServer:{
 		contentBase:path.join(__dirname,'./dist')
 	},
+	resolve: {
+        alias: {
+            '@': path.resolve('./src')
+        }
+    },
 	module:{
 		rules:[
 			{
@@ -51,12 +56,18 @@ module.exports = {
 						name:'[path][name].[ext]'
 					}
 				}]
-			}
+			}, {
+	            test: /\.(woff|woff2|eot|ttf|otf)$/,
+	            use: [
+	                'file-loader'
+	            ]
+	        }
 		]
 	},
 	plugins:[
 		new cleanPlugin(['dist']),
 		new htmlPlugin({
+			title: 'model-demo',
 			template:path.join(__dirname,'./src/index.html'),
 			filename:'index.html'
 		}),
