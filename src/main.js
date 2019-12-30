@@ -3,6 +3,7 @@ import Vue from 'Vue'
 import Element from 'element-ui'
 
 import App from './App.vue'
+import router from './router'
 
 import './plugins/axios'
 
@@ -16,5 +17,6 @@ Vue.use(Element)
 
 new Vue({
 	el:'#root',
+	router,
 	render:h => h(App)
 })

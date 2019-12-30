@@ -1,25 +1,28 @@
 <template>
-    <div class="main">
-    	<mapcompontent />
+    <div class="app">
+        <router-view></router-view>
     </div>
 </template>
 <script>
-import mapcompontent from '@/viewer/uli.vue'
 
 export default {
     name: 'app',
-    components: { mapcompontent },
     data() {
         return {}
     },
     mounted() {
-        console.log('mian created: ', this)
+        console.log('app created: ', this)
     }
 }
 </script>
 <style lang="scss" scoped>
-.main {
+.app {
 	height: 100%;
 	width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: #fff;
+    background-color: #0a1420;
 }
 </style>
